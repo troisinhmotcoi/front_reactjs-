@@ -7,7 +7,7 @@ class Contact extends React.Component {
   };
 
   fetchUsers() {
-    fetch(`http://127.0.0.1:8000/api/polls`)
+    fetch(`https://neunhuladinhmenh.herokuapp.com/api/polls`)
       .then(response => response.json())
       .then(data =>
         this.setState({
@@ -32,9 +32,10 @@ class Contact extends React.Component {
             const {  title, content } = user;
             return (
               <div key={title}>
-                <p>Name: {content}</p>
-                <p>Email Address: </p>
-                <hr />
+              <p>{title}</p>
+                <p> {content}</p>
+                
+                
               </div>
             );
           })
