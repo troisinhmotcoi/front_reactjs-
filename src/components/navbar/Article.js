@@ -25,13 +25,13 @@ class Article extends React.Component {
     const { isLoading, users, error } = this.state;
     return (
       <React.Fragment>
-        <h1>Random User</h1>
+        
         {error ? <p>{error.message}</p> : null}
         {!isLoading ? (
           users.map(user => {
             const {  title, content } = user;
             return (
-              <div key={title}>
+              <div >
               <p>{title}</p>
                 <p> {content}</p>
                 
