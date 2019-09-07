@@ -51,4 +51,4 @@ class Article extends React.Component {
         
     
 
-export default Article;
+export default Article
