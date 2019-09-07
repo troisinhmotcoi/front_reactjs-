@@ -1,5 +1,5 @@
 import React from 'react'
-class Contact extends React.Component {
+class Article extends React.Component {
   state = {
     isLoading: true,
     users: [],
@@ -51,4 +51,4 @@ class Contact extends React.Component {
         
     
 
-export default Contact;
+export default Article;
