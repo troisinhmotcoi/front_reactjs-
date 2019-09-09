@@ -1,4 +1,8 @@
 import React from 'react'
+import './css/article.css'
+
+
+
 class Article extends React.Component {
   state = {
     isLoading: true,
@@ -31,12 +35,17 @@ class Article extends React.Component {
           users.map(user => {
             const {  title, content } = user;
             return (
-              <div >
-              <p>{title}</p>
+              <div className="scrollbar">
+              <h1 className="entry_title">
+              <a>{title}</a>
+              </h1>
+              
+              <div className="entry_content">
                 <p> {content}</p>
-                
-                
-              </div>
+                <a href="" className="more-link">Continue reading</a>
+                </div>
+              </div>  
+              
             );
           })
         ) : (

@@ -19,7 +19,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div>
+      <div >
         <label onClick={()=>this.operation()}>
          <top></top><middle></middle><bottom></bottom>
         </label>

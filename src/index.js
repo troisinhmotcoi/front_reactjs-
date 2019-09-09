@@ -6,12 +6,15 @@ import App from './components/navbar/App';
 import './index.css'
 
 
-
+var rootStyle = {backgroundColor:"#2a2c2e",color:
+"#ffffff",}
             
 
     render((
-  <BrowserRouter>
+  <BrowserRouter >
+  <div style={rootStyle}>
     <App />
+    </div>
   </BrowserRouter>
 ), document.getElementById('root'));
 
