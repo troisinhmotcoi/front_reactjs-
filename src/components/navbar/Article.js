@@ -35,7 +35,7 @@ class Article extends React.Component {
           users.map(user => {
             const {  title, content } = user;
             return (
-              <div className="scrollbar">
+              <div className="params">
               <h1 className="entry_title">
               <a>{title}</a>
               </h1>

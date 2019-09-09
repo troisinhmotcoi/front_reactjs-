@@ -9,5 +9,8 @@ p{display: block;
     margin-inline-start: 0px;
     margin-inline-end: 0px;}
     a.more-link{text-align:center;cursor:pointer;font-size:16px;box-sizing: content-box;
-    padding: .4375em .875em;transition: background 120ms ease-in-out, box-shadow 120ms ease-in-out;
+    padding: .4375em .875em;transition:120ms ease-in-out, box-shadow 120ms ease-in-out;
 border:solid 1px transparent;}
+.params{ display: block;
+  border-top:solid 1px #ddd;
+}
