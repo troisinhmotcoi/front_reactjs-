@@ -1,63 +1,17 @@
 import React from 'react'
-import './css/article.css'
+import { Switch, Route } from 'react-router-dom'
+import FullArticle from './FullArticle'
+import ArticlePage from './ArticlePage'
 
+// The Roster component matches one of two different routes
+// depending on the full pathname
+const Article = () => (
+  <Switch>
+    <Route exact path='/article' component={FullArticle}/>
+    <Route path='/article/:id' component={ArticlePage}/>
+  </Switch>
+)
 
-
-class Article extends React.Component {
-  state = {
-    isLoading: true,
-    users: [],
-    error: null
-  };
-
-  fetchUsers() {
-    fetch(`https://neunhuladinhmenh.herokuapp.com/api/polls`)
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          users: data,
-          isLoading: false,
-        })
-      )
-      .catch(error => this.setState({ error, isLoading: false }));
-  }
-
-  componentDidMount() {
-    this.fetchUsers();
-  }
-  render() {
-    const { isLoading, users, error } = this.state;
-    return (
-      <React.Fragment>
-        
-        {error ? <p>{error.message}</p> : null}
-        {!isLoading ? (
-          users.map(user => {
-            const {  title, content } = user;
-            return (
-              <div className="params">
-              <h1 className="entry_title">
-              <a>{title}</a>
-              </h1>
-              
-              <div className="entry_content">
-                <p> {content}</p>
-                <a href="" className="more-link">Continue reading</a>
-                </div>
-              </div>  
-              
-            );
-          })
-        ) : (
-          <h3>Loading...</h3>
-        )}
-      </React.Fragment>
-    );
-  }
-}
-
-          
-        
-    
 
 export default Article
+

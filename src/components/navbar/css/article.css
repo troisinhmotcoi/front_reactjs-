@@ -12,5 +12,5 @@ p{display: block;
     padding: .4375em .875em;transition:120ms ease-in-out, box-shadow 120ms ease-in-out;
 border:solid 1px transparent;}
 .params{ display: block;
-  border-top:solid 1px #ddd;
+  border-top:solid 1px;text-align: center;
 }

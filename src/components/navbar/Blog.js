@@ -8,7 +8,7 @@ import Player from './Player'
 const Blog = () => (
   <Switch>
     <Route exact path='/blog' component={FullBlog}/>
-    <Route path='/blog/:number' component={Player}/>
+    <Route path='/blog/:nu' component={Player}/>
   </Switch>
 )
 
