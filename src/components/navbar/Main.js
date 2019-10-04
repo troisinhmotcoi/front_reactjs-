@@ -1,36 +1,33 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { Switch, Route } from 'react-router-dom'
+import React, { Component}  from 'react';
+import {Switch, Route}  from 'react-router-dom';
+
+import SignUpContainer from "./SignUpContainer"
+import './css/signup.css';
+
 import Home from './Home';
 import About from './About';
-import Blog from './Blog';
-import Login from './Login';
-import Signup from './Signup';
 import Article from './Article';
-import { Link } from 'react-router-dom'
-
-
-
-
-
-
-const main=()=>(
-  
-    <main>
-  
-      <Switch>
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+class Main extends Component {
+    
+    render() {
+      return (
+        <div>
+          <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/about' component={About}/>
-          <Route path='/blog' component={Blog}/>
           
           <Route path='/article' component={Article}/>
-         
-          <Route path='/signup' component={Signup}/>
-          <Route path='/login' component={Login}/>
-       
-</Switch>
-</main>
-
-  )
-
-  export default main;
+          <MuiThemeProvider> 
+        <Route path='/signup' component={SignUpContainer}/>
+               </MuiThemeProvider>
+          </Switch>
+        
+        </div>
+      );
+    }
+  }
+ 
+  
+  export default Main
+     

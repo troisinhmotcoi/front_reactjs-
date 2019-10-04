@@ -55,7 +55,7 @@ class FullArticle extends React.Component {
               );
             })
           ) : (
-            <h3>Loading...</h3>
+            <h3>Đang load đợi chút ....</h3>
           )}
         </React.Fragment>
       );
