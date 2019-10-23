@@ -1,9 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-import Main from'./components/navbar/Main';
-import Header from './components/navbar/Header';
+import Main from'./components/Main';
+import Header from './components/Header';
 import './index.css'
+
 
 
 

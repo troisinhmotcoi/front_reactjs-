@@ -25,13 +25,13 @@ link,a{  text-decoration: none;
   text-decoration: none;
   display: block;
 }
-input {
+/*input {
   display: none;
-}
+}*/
 .dropdown:hover .dropdown-menu {display: block;}
-label{
+/*label{
   display:none;
-}
+}*/
 
 .navbar-link{display: block
 ;height:50px;}
