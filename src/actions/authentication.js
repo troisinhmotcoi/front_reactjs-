@@ -31,7 +31,8 @@ const  auth= {
     //auth.password=password
     axios.post('https://neunhuladinhmenh.herokuapp.com/api/user/login', JSON.stringify(auth),
     {
-        headers: {   "Accept":"application/json",      "Content-Type":"application/json",
+        headers: {  "Origin":"*", "Accept":"application/json",
+              "Content-Type":"application/json",
     
           }
     })
