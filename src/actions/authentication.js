@@ -31,7 +31,7 @@ const  auth= {
     //auth.password=password
     axios.post('https://neunhuladinhmenh.herokuapp.com/api/user/login', JSON.stringify(auth),
     {
-        headers: { 'Access-Control-Allow-Origin':'*', "Accept":"application/json",
+        headers: { 'Access-Control-Allow-Origin':'https://neunhuladinhmenh.herokuapp.com', "Accept":"application/json",
               "Content-Type":"application/json",
     
           }
