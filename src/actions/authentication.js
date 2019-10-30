@@ -20,7 +20,7 @@ export const registerUser = (user, history) => dispatch => {
 export const loginUser = (email,password) => dispatch => {
 //server not accept json data so i use qs (form data urlencode)
    const auth= qs.stringify({email,password})
-    axios.post('http://neunhuladinhmenh.herokuapp.com/api/user/login',auth ,{ headers: {
+    axios.post('https://neunhuladinhmenh.herokuapp.com/api/user/login',auth ,{ headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       }}
   )

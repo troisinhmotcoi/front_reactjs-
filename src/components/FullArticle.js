@@ -11,7 +11,7 @@ class FullArticle extends React.Component {
   
     fetchUsers() {
       
-      fetch(`http://neunhuladinhmenh.herokuapp.com/api/polls`)
+      fetch(`https://neunhuladinhmenh.herokuapp.com/api/polls`)
         .then(response => response.json())
         .then(data =>
           this.setState({
