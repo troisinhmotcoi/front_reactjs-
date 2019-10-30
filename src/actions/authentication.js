@@ -2,7 +2,7 @@ import axios from 'axios';
 import { GET_ERRORS } from './types';
 import setAuthToken from '../setAuthToken';
 import jwt_decode from 'jwt-decode';
-
+import qs from 'qs';
 import { SET_CURRENT_USER } from './types';
 
 
@@ -18,24 +18,12 @@ export const registerUser = (user, history) => dispatch => {
 }
 
 export const loginUser = (email,password) => dispatch => {
-   // const payload = {
-     //   email:'email',
-       // password:'password' 
-      //};const userStr = JSON.stringify(user)
-const  auth= {
-       email:email,
-     password: password
-    }
-    //let auth={email}
-   // auth.email=email
-    //auth.password=password
-    axios.post('https://neunhuladinhmenh.herokuapp.com/api/user/login', JSON.stringify(auth),
-    {
-        headers: { 'Access-Control-Allow-Origin':'https://neunhuladinhmenh.herokuapp.com', "Accept":"application/json",
-              "Content-Type":"application/json",
-    
-          }
-    })
+//server not accept json data so i use qs (form data urlencode)
+   const auth= qs.stringify({email,password})
+    axios.post('http://neunhuladinhmenh.herokuapp.com/api/user/login',auth ,{ headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      }}
+  )
             .then(res => {
                 const { token } = res.data.token;
                 localStorage.setItem('jwtToken', token);

@@ -13,4 +13,5 @@ p{display: block;
 border:solid 1px transparent;}
 .params{ display: block;
   border-top:solid 1px;text-align: center;
+  padding-bottom: 100px;
 }

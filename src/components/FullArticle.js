@@ -11,7 +11,7 @@ class FullArticle extends React.Component {
   
     fetchUsers() {
       
-      fetch(`https://neunhuladinhmenh.herokuapp.com/api/polls`)
+      fetch(`http://neunhuladinhmenh.herokuapp.com/api/polls`)
         .then(response => response.json())
         .then(data =>
           this.setState({
@@ -26,6 +26,7 @@ class FullArticle extends React.Component {
       this.fetchUsers();
     }
     render() {
+      
       const { isLoading, users, error } = this.state;
       return (
         <React.Fragment>
@@ -33,29 +34,59 @@ class FullArticle extends React.Component {
           {error ? <p>{error.message}</p> : null}
           {!isLoading ? (
             users.map(user => {
+              if(user.tag==='love')
               
-              return (
-                <div className="params">
-                <h1 className="entry_title">
-                <a>{user.title}</a>
-                </h1>
+              return (<div className="params">
+                             <h1 className="entry_title">
+              <a>Bảo vệ: "{user.title}"</a>
+              </h1>
+                   <div className="entry_content">
+                   <form onSubmit={ this.handleSubmit }>
+
+                   <div className="form-group">
+
+                <label htmlFor="password">Mật khẩu</label>
+
+                <input
+                    type="password"
+                    placeholder="Password"
+                    className="form-control"
+                    name="password"
+                    onChange={ this.handleInputChange}
+                    value={this.state.password}
+                    />
+                    <button type="submit" className="btn btn-primary">
+                        Nhập vào
+                    </button>
+                </div>
+                </form>
+                </div>
+               
+                   </div>
+              )
+              else 
+              {return<div className="params">
+              <h1 className="entry_title">
+              <a>{user.title}</a>
+              </h1>
+              
+              <div className="entry_content">
                 
-                <div className="entry_content">
-                  
-  
-  
-    <li key="user.id">
-      <Link to={`/article/${user.id}`}>continue reading</Link>
-    </li>
+
+
+  <li key="user.id">
+    <Link to={`/article/${user.id}`}>continue reading</Link>
+  </li>
+              
                 
-                  
-                  </div>
-                </div>  
-                  
-              );
+                </div>
+              </div>  }
+              
+              
+              ;
             })
           ) : (
-            <h3>Đang load đợi chút ....</h3>
+            <h3> loading ....</h3>
           )}
         </React.Fragment>
       );
