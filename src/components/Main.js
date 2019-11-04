@@ -1,5 +1,6 @@
 import React, { Component}  from 'react';
 import {Switch, Route}  from 'react-router-dom';
+import { history } from '../helper';
 
 import SignUp from "./SignUp"
 import './css/signup.css';
@@ -16,7 +17,7 @@ class Main extends Component {
       return (
         <div>
           
-          <Switch>
+          <Switch >
           <Route exact path='/' component={Home}/>
           <Route path='/about' component={About}/>
           
@@ -24,7 +25,7 @@ class Main extends Component {
           <MuiThemeProvider> 
           <Provider store = { store }>
         <Route path='/signup' component={SignUp}/>
-        <Route path='/login' component={Login}/>
+        <Route  path='/login' component={Login}/>
         </Provider>
 
                </MuiThemeProvider>

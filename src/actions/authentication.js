@@ -4,6 +4,8 @@ import setAuthToken from '../setAuthToken';
 import jwt_decode from 'jwt-decode';
 import qs from 'qs';
 import { SET_CURRENT_USER } from './types';
+import { history } from '../helper';
+import { Redirect }  from 'react-router';
 
 
 export const registerUser = (user, history) => dispatch => {
@@ -25,11 +27,14 @@ export const loginUser = (email,password) => dispatch => {
       }}
   )
             .then(res => {
+                history.push("/");
+                res.json();
                 const { token } = res.data.token;
                 localStorage.setItem('jwtToken', token);
                 setAuthToken(token);
                 const decoded = jwt_decode(token);
                 dispatch(setCurrentUser(decoded));
+
             })
             .catch(res => {
                 dispatch({

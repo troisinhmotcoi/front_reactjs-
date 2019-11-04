@@ -16,7 +16,7 @@ export default class ArticlePage extends React.Component {
   const id=this.props.match.params.id;
   
   axios.get (
-   `http://localhost:8000/api/polls/${id}`
+   `https://neunhuladinhmenh.herokuapp.com/api/polls/${id}`
  )
  
  .then(response => {
@@ -44,20 +44,32 @@ export default class ArticlePage extends React.Component {
   render() {
     
     const { articleTitle,artcontent} = this.state;
-    return (
+  
+    
+    return (           <React.Fragment>
+{articleTitle}
+{artcontent.split("\r\n").map(artcontent=>{
+return ( 
       <div>
-      <h1>{articleTitle}</h1>
-      
-     <p>{artcontent}</p>
-      <Link to={`/article`}>back</Link>
-      </div>     );
-  }
+        
+       <p>{artcontent}</p>
 
-}
+      </div>)})}
+      {
+          <Link to={`/article`}>back</Link>
+      }
+          </React.Fragment>
+          )
+      }
+
+
+       ;
+  
+    
+
         
             
-
-        
+}
   
     
  
