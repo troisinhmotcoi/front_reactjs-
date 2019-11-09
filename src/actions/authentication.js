@@ -19,23 +19,32 @@ export const registerUser = (user, history) => dispatch => {
             });
 }
 
-export const loginUser = (email,password) => dispatch => {
+export  const loginUser = (email,password) => dispatch => {
 //server not accept json data so i use qs (form data urlencode)
    const auth= qs.stringify({email,password})
     axios.post('https://neunhuladinhmenh.herokuapp.com/api/user/login',auth ,{ headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       }}
   )
-            .then(res => {
-                history.push("/");
-                res.json();
+
+            .then(         
+                res=>{
+                    
+                    if (!res.data.remember_token==false) {
+                         history.push('/');
+                      
+               res.json();
                 const { token } = res.data.token;
                 localStorage.setItem('jwtToken', token);
                 setAuthToken(token);
                 const decoded = jwt_decode(token);
                 dispatch(setCurrentUser(decoded));
+            }
+        }
+            )
+            
 
-            })
+            
             .catch(res => {
                 dispatch({
                     type: GET_ERRORS,
@@ -43,6 +52,30 @@ export const loginUser = (email,password) => dispatch => {
                 });
             });
 }
+export  const secretUser = (password) => dispatch => {
+    //server not accept json data so i use qs (form data urlencode)
+       const auth= qs.stringify({password})
+        axios.post('http://localhost:8000/api/user/secret',auth ,{ headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+          }}
+      )
+    
+                .then(         
+                    res=>{
+                        
+                        if (!res.data.remember_token==false) {
+                             history.push('/');
+                          
+                   res.json();
+                    const { data_secret } = res.data.content;
+                    document.cookie=data_secret;
+                    document.cookies.setItem('dataSecret', data_secret);
+                    setAuthToken(data_secret);
+                    const decoded = jwt_decode(data_secret);
+                    dispatch(setCurrentUser(decoded));
+                }
+            }
+                )}
 export const setCurrentUser = decoded => {
     return {
         type: SET_CURRENT_USER,

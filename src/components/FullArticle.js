@@ -1,7 +1,10 @@
 import React from 'react'
+import store from '../store';
+import { Provider } from 'react-redux';
+
 import './css/article.css'
 import { Link } from 'react-router-dom'
-
+import Secret from './Secret'
 class FullArticle extends React.Component {
     state = {
       isLoading: true,
@@ -40,29 +43,12 @@ class FullArticle extends React.Component {
                              <h1 className="entry_title">
               <a>Bảo vệ: "{user.title}"</a>
               </h1>
-                   <div className="entry_content">
-                   <form onSubmit={ this.handleSubmit }>
+              <Provider store = { store }>
 
-                   <div className="form-group">
-
-                <label htmlFor="password">Mật khẩu</label>
-
-                <input
-                    type="password"
-                    placeholder="Password"
-                    className="form-control"
-                    name="password"
-                    onChange={ this.handleInputChange}
-                    value={this.state.password}
-                    />
-                    <button type="submit" className="btn btn-primary">
-                        Nhập vào
-                    </button>
-                </div>
-                </form>
-                </div>
-               
+                   <Secret/>
+                   </Provider>
                    </div>
+                   
               )
               else 
               {return<div className="params">

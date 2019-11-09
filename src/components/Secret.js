@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect} from 'react-redux';
-import { loginUser } from '../actions/authentication';
+import { secretUser } from '../actions/authentication';
 import ReactDOM from 'react-dom';
-class Login extends Component {
+class Secret extends Component {
 
     constructor() {
         super();
         this.state = {
-            email: '',
             password: '',
             errors: {}
         }
@@ -26,9 +25,8 @@ class Login extends Component {
     handleSubmit(e) {
         e.preventDefault();
         
-         const   email=this.state.email    
          const   password=this.state.password   
-      this.props.loginUser(email,password);
+      this.props.secretUser(password);
     
   }
         
@@ -47,23 +45,9 @@ class Login extends Component {
     render() {
         return(
         <div className="container" style={{ marginTop: '50px', width: '700px'}}>
-            <p>email:nam@gmail.com</p>
-            <br/><p>password: meo
-            </p>
-            <h2 style={{marginBottom: '40px'}}>Login</h2>
+            
             <form onSubmit={ this.handleSubmit }>
-                <div className="form-group">
-                <label htmlFor="email">Email</label>
-
-                    <input 
-                    type="email"
-                    placeholder="email"
-                    className="form-control"
-                    name="email"
-                    onChange={ this.handleInputChange }
-                    value={ this.state.email }
-                    />
-                </div>
+                
                 <div className="form-group">
                 <label htmlFor="password">Password</label>
 
@@ -78,7 +62,7 @@ class Login extends Component {
                 </div>
                 <div className="form-group">
                     <button type="submit" className="btn btn-primary">
-                        Login User
+                        Nhập vào
                     </button>
                 </div>
             </form>
@@ -87,7 +71,7 @@ class Login extends Component {
     }
 }
 
-Login.propTypes = {
+Secret.propTypes = {
     errors: PropTypes.object.isRequired
 }
 
@@ -95,4 +79,4 @@ const mapStateToProps = (state) => ({
     errors: state.errors
 })
 
-export  default connect(mapStateToProps, { loginUser })(Login)
+export  default connect(mapStateToProps, { secretUser })(Secret)
