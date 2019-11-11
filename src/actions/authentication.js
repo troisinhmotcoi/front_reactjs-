@@ -56,7 +56,7 @@ export  const loginUser = (email,password) => dispatch => {
 export  const secretUser = (password) => dispatch => {
     //server not accept json data so i use qs (form data urlencode)
        const auth= qs.stringify({password})
-        axios.post('http://localhost:8000/api/user/secret',auth ,{ headers: {
+        axios.post('https://neunhuladinhmenh.herokuapp.com/api/user/secret',auth ,{ headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
           }}
       )
