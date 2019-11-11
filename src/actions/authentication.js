@@ -3,7 +3,8 @@ import { GET_ERRORS } from './types';
 import setAuthToken from '../setAuthToken';
 import jwt_decode from 'jwt-decode';
 import qs from 'qs';
-import { SET_CURRENT_USER } from './types';
+import { SET_CURRENT_USER} from './types';
+import {SECRET_POST} from './types';
 import { history } from '../helper';
 import { Redirect }  from 'react-router';
 
@@ -62,23 +63,26 @@ export  const secretUser = (password) => dispatch => {
     
                 .then(         
                     res=>{
-                        
-                        if (!res.data.remember_token==false) {
-                             history.push('/');
-                          
-                   res.json();
-                    const { data_secret } = res.data.content;
-                    document.cookie=data_secret;
-                    document.cookies.setItem('dataSecret', data_secret);
-                    setAuthToken(data_secret);
-                    const decoded = jwt_decode(data_secret);
-                    dispatch(setCurrentUser(decoded));
+                        if (!res.data==false) {
+                            localStorage.setItem('secret',JSON.stringify(res.data));
+                             history.push('/about');
+
+
+                          //dispatch(secretPost(res_h.content));
                 }
             }
                 )}
+                
+                /*export const secretPost=res_h.content => {
+                    return {
+                        type: SECRET_POST,
+                        payload: res_h.content
+                    }
+                }*/
 export const setCurrentUser = decoded => {
     return {
         type: SET_CURRENT_USER,
         payload: decoded
     }
+ 
 }

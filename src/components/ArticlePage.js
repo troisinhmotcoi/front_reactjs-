@@ -30,18 +30,7 @@ export default class ArticlePage extends React.Component {
 });
 }
 
-
-
-   
-    
-
-
-
-
-  
-      
-
-  render() {
+render() {
     
     const { articleTitle,artcontent} = this.state;
   

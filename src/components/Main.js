@@ -21,14 +21,12 @@ class Main extends Component {
 
           <Route exact path='/' component={Home}/>
 
-
-          <Route path='/about' component={About}/>
           
           <Route path='/article' component={Article}/>
 
 
           <Provider store = { store }>
-
+          <Route path='/about' component={About}/>
           <MuiThemeProvider> 
 
         <Route path='/signup' component={SignUp}/>

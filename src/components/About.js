@@ -1,10 +1,44 @@
 import React from 'react'
-class About extends React.Component {
-    render(){
-        return (
-            <div>About</div>
-        )
+import { connect} from 'react-redux';
 
-    }
+import {secretUser} from '../actions/authentication';
+import { object } from 'prop-types';
+class About extends React.Component {
+    constructor(){super();
+        const posts_str = (localStorage.getItem('secret'));
+   // const post=  posts_str.replace(/\\n/g,"\\n").replace(/\\r/g,"\\r");
+        this.state = {
+             posts:posts_str,
+            isLoading:false
+        };
+      }
+     
+
+    render(){ 
+        const {isLoading,posts}=this.state
+        return(
+            <React.Fragment>
+             
+                {posts.slice(12)}
+        
+           </React.Fragment>) 
 }
-export default About;
+}
+export  default connect(null,{secretUser}) (About)
+/*{!isLoading ? (
+              posts.map(posts=>{ 
+                //keys=Object.keys(posts[2]);
+            // const   values=Object.values(posts[0])
+
+            return  (<div>
+              <h1 key='posts.title'>{posts.title}</h1>
+              {posts.slice(30,185).split("\r\n")}
+             </div>
+                       )
+            
+            }
+               )
+              ) : (
+                  <h3> loading ....</h3>
+                )}
+}*/
