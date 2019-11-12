@@ -34,9 +34,9 @@ class Header extends React.Component {
       
         
 
-      <li><Link to="/about">About</Link></li>
       
-      <li><Link to="/article">Article</Link></li>
+      
+      <li><Link to="/article">Hót</Link></li>
       <li><Link to="/signup">Signup</Link></li>
       <li><Link to="/login">Login</Link></li>
       <li className="dropdown">
