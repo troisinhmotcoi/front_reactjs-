@@ -20,10 +20,11 @@ export default class ArticlePage extends React.Component {
  )
  
  .then(response => {
+   if (response.data.tag==null){
   this.setState({ articleTitle: response.data.title ,
 
     artcontent:response.data.content,
-  });
+  })};
 })
 .catch(error => {
   console.log(error);
