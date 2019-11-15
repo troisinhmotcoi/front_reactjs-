@@ -36,7 +36,7 @@ export  const loginUser = (email,password) => dispatch => {
                       
                res.json();
                 const { token } = res.data.token;
-                localStorage.setItem('jwtToken', token);
+                sessionStorage.setItem('jwtToken', token);
                 setAuthToken(token);
                 const decoded = jwt_decode(token);
                 dispatch(setCurrentUser(decoded));
@@ -64,7 +64,7 @@ export  const secretUser = (password) => dispatch => {
                 .then(         
                     res=>{
                         if (!res.data==false) {
-                            localStorage.setItem('secret',JSON.stringify(res.data));
+                            sessionStorage.setItem('secret',JSON.stringify(res.data));
                              history.push('/about');
 
 

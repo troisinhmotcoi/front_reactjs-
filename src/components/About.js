@@ -5,7 +5,7 @@ import {secretUser} from '../actions/authentication';
 import { object } from 'prop-types';
 class About extends React.Component {
     constructor(){super();
-        const posts_str = (localStorage.getItem('secret'));
+        const posts_str = (sessionStorage.getItem('secret'));
    // const post=  posts_str.replace(/\\n/g,"\\n").replace(/\\r/g,"\\r");
         this.state = {
              posts:posts_str,
