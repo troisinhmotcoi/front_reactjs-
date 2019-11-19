@@ -47,6 +47,7 @@ class FullArticle extends React.Component {
 
                    <Secret/>
                    </Provider>
+                   
                    </div>
                    
               )

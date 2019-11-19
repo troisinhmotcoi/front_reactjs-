@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect} from 'react-redux';
+import { Link } from 'react-router-dom'
 
 import {secretUser} from '../actions/authentication';
 import { object } from 'prop-types';
@@ -20,7 +21,8 @@ class About extends React.Component {
             <React.Fragment>
              
                 {posts.slice(12)}
-        
+               <div> {<Link to={`/article`}>back</Link>}
+                         </div>
            </React.Fragment>) 
 }
 }

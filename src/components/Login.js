@@ -47,6 +47,9 @@ class Login extends Component {
     render() {
         return(
         <div className="container" style={{ marginTop: '50px', width: '700px'}}>
+            <p>You must log in to view the page at /home
+
+</p>
             <p>email:nam@gmail.com</p>
             <br/><p>password: meo
             </p>

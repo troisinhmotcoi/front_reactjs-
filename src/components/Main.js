@@ -1,6 +1,6 @@
 import React, { Component}  from 'react';
 import {Switch, Route,Router}  from 'react-router-dom';
-
+import {PrivateRoute} from '../helper/index';
 import SignUp from "./SignUp"
 import './css/signup.css';
 import store from '../store';
@@ -10,6 +10,8 @@ import Home from './Home';
 import About from './About';
 import Article from './Article';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import { height } from '@material-ui/system';
+import { ActionHelp } from 'material-ui/svg-icons';
 
 class Main extends Component {
     
@@ -18,8 +20,6 @@ class Main extends Component {
         <div>
           
           <Switch >
-
-          <Route exact path='/' component={Home}/>
 
           
           <Route path='/article' component={Article}/>
@@ -31,8 +31,8 @@ class Main extends Component {
 
         <Route path='/signup' component={SignUp}/>
 
-        <Route  path='/login' component={Login}/>
-      
+        <Route  isexact path='/login' component={Login}/>
+      <PrivateRoute path='/home' component={Home}/>
 
                </MuiThemeProvider>
                </Provider>

@@ -23,7 +23,7 @@ export const registerUser = (user, history) => dispatch => {
 export  const loginUser = (email,password) => dispatch => {
 //server not accept json data so i use qs (form data urlencode)
    const auth= qs.stringify({email,password})
-    axios.post('https://neunhuladinhmenh.herokuapp.com/api/user/login',auth ,{ headers: {
+    axios.post('http://127.0.0.1:8000/api/user/login',auth ,{ headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       }}
   )
@@ -31,15 +31,15 @@ export  const loginUser = (email,password) => dispatch => {
             .then(         
                 res=>{
                     
-                    if (!res.data.remember_token==false) {
-                         history.push('/');
+                    if (!res.data==false) {
+                         
                       
-               res.json();
-                const { token } = res.data.token;
-                sessionStorage.setItem('jwtToken', token);
-                setAuthToken(token);
-                const decoded = jwt_decode(token);
+               
+                sessionStorage.setItem('jwtToken', JSON.stringify(res.data.remember_token));
+                setAuthToken(res.data.remember_token);
+                const decoded = jwt_decode(res.data.remember_token);
                 dispatch(setCurrentUser(decoded));
+                history.push('/home');
             }
         }
             )
@@ -53,6 +53,12 @@ export  const loginUser = (email,password) => dispatch => {
                 });
             });
 }
+export const logoutUser=()=>dispatch=>{
+    sessionStorage.removeItem('jwtToken');
+    setCurrentUser.next(null);
+
+}
+
 export  const secretUser = (password) => dispatch => {
     //server not accept json data so i use qs (form data urlencode)
        const auth= qs.stringify({password})
@@ -73,16 +79,27 @@ export  const secretUser = (password) => dispatch => {
             }
                 )}
                 
-                /*export const secretPost=res_h.content => {
-                    return {
-                        type: SECRET_POST,
-                        payload: res_h.content
-                    }
-                }*/
+
 export const setCurrentUser = decoded => {
     return {
         type: SET_CURRENT_USER,
         payload: decoded
     }
  
+}
+
+export function authHeader() {
+    // return authorization header with jwt token
+    const currentUser = setCurrentUser;
+    if (currentUser && currentUser.token) {
+        return { Authorization: `Bearer ${currentUser.token}` };
+    } else {
+        return {};
+    }
+}
+export const getAll=()=>{
+    const requestOptions = { method: 'GET', headers: authHeader() };
+    return fetch('http://127.0.0.1:8000/api/user',requestOptions).then(
+        res=>{ return res.data}
+    )
 }

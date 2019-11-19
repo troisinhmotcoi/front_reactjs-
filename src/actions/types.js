@@ -1,7 +1,7 @@
 export const GET_ERRORS = 'GET_ERRORS';
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const SECRET_POST = 'SECRET_POST';
-
+export const LOGOUT='LOGOUT';
 /*import jwtDecode from "jwt-decode";
 
 export default class Auth {
