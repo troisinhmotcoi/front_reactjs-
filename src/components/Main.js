@@ -1,10 +1,8 @@
 import React, { Component}  from 'react';
-import {Switch, Route,Router}  from 'react-router-dom';
+import {Switch, Route,Redirect}  from 'react-router-dom';
 import {PrivateRoute} from '../helper/index';
 import SignUp from "./SignUp"
 import './css/signup.css';
-import store from '../store';
-import { Provider } from 'react-redux';
 import Login from './Login'
 import Home from './Home';
 import About from './About';
@@ -20,31 +18,23 @@ class Main extends Component {
         <div>
           
           <Switch >
-
-          
-          <Route path='/article' component={Article}/>
-
-
-          <Provider store = { store }>
-          <Route path='/about' component={About}/>
+          <Redirect exact from='/' to='/login'/>
+          <PrivateRoute  path='/home' component={Home}/>
           <MuiThemeProvider> 
+          <Route  path='/signup' component={SignUp}/>
+          <Route   path='/login' component={Login}/>
+          <Route  path='/article' component={Article}/>
 
-        <Route path='/signup' component={SignUp}/>
+          <Route  path='/about' component={About}/>
 
-        <Route  isexact path='/login' component={Login}/>
-      <PrivateRoute path='/home' component={Home}/>
-
-               </MuiThemeProvider>
-               </Provider>
-               
+          </MuiThemeProvider>
 
 
-          </Switch>
+           
+         </Switch>
         </div>
       );
     }
   }
- 
-  
-  export default  (Main)
+ export default  (Main)
      

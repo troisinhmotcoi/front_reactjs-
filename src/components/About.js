@@ -20,7 +20,7 @@ class About extends React.Component {
         return(
             <React.Fragment>
              
-                {posts.slice(12)}
+                {posts}
                <div> {<Link to={`/article`}>back</Link>}
                          </div>
            </React.Fragment>) 

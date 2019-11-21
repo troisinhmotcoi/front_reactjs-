@@ -23,7 +23,7 @@ export const registerUser = (user, history) => dispatch => {
 export  const loginUser = (email,password) => dispatch => {
 //server not accept json data so i use qs (form data urlencode)
    const auth= qs.stringify({email,password})
-    axios.post('http://127.0.0.1:8000/api/user/login',auth ,{ headers: {
+    axios.post('http://chinhanh.herokuapp.com/api/user/login',auth ,{ headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       }}
   )
@@ -62,7 +62,7 @@ export const logoutUser=()=>dispatch=>{
 export  const secretUser = (password) => dispatch => {
     //server not accept json data so i use qs (form data urlencode)
        const auth= qs.stringify({password})
-        axios.post('https://neunhuladinhmenh.herokuapp.com/api/user/secret',auth ,{ headers: {
+        axios.post('http://chinhanh.herokuapp.com/api/user/secret',auth ,{ headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
           }}
       )
@@ -99,7 +99,7 @@ export function authHeader() {
 }
 export const getAll=()=>{
     const requestOptions = { method: 'GET', headers: authHeader() };
-    return fetch('http://127.0.0.1:8000/api/user',requestOptions).then(
+    return fetch('http://chinhanh.herokuapp.com/api/user',requestOptions).then(
         res=>{ return res.data}
     )
 }

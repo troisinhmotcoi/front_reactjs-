@@ -7,21 +7,26 @@ import Header from './components/Header';
 import './index.css'
 import { history } from './helper';
 
+import { Provider } from 'react-redux';
+import store from './store';
 
 
 
 
     render((
-        
       <BrowserRouter>   
         <Router history={history}>
-    <Header/>
-    
+        <Header/>
+        <Provider store = { store }>
+
       <Main/>
+      </Provider>
+
       </Router>
     
     
 
       </BrowserRouter>    
+
 ), document.getElementById('root'));
 
