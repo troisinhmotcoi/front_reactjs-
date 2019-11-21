@@ -16,7 +16,7 @@ export default class ArticlePage extends React.Component {
   const id=this.props.match.params.id;
   
   axios.get (
-   `https://chinhanh.herokuapp.com/api/polls/${id}`
+   `https://neunhuladinhmenh.herokuapp.com/api/polls/${id}`
  )
  
  .then(response => {
