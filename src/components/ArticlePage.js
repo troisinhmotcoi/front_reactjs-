@@ -34,17 +34,21 @@ export default class ArticlePage extends React.Component {
 render() {
     
     const { articleTitle,artcontent} = this.state;
+  const str=artcontent.replace(/\n/g,"<br/>");
   
-    
+
     return (           <React.Fragment>
 {articleTitle}
-{artcontent.split("\r\n").map(artcontent=>{
-return ( 
+
+{str.split('<br/>').map(artcontent=>{
+  if(artcontent === ''){return <br/>}
+else {return ( 
       <div>
         
        <p>{artcontent}</p>
-
-      </div>)})}
+       
+      </div>) }
+    })}
       {
           <Link to={`/article`}>back</Link>
       }

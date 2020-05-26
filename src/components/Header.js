@@ -36,8 +36,8 @@ class Header extends React.Component {
 
       
 
-      <li><Link to="/article">Hót</Link></li>
-      <li><Link to="/signup">Signup</Link></li>
+      <li><Link to="/article">Posts</Link></li>
+      {/* <li><Link to="/signup">Signup</Link></li>
       <li className="active"><Link to="/login">Login</Link></li>
       <li className="dropdown">
         <a className="dropdown-toggle" data-toggle="dropdown" href="#">Language
@@ -47,7 +47,7 @@ class Header extends React.Component {
           <li><a href="#">Vietnamese</a></li>
           
           </ul>
-        </li>
+        </li> */}
         </div>
       
          </div>:null        }

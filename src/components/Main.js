@@ -21,8 +21,8 @@ class Main extends Component {
           <Redirect exact from='/' to='/login'/>
           <PrivateRoute  path='/home' component={Home}/>
           <MuiThemeProvider> 
-          <Route  path='/signup' component={SignUp}/>
-          <Route   path='/login' component={Login}/>
+          {/* <Route  path='/signup' component={SignUp}/>
+          <Route   path='/login' component={Login}/> */}
           <Route  path='/article' component={Article}/>
 
           <Route  path='/about' component={About}/>
