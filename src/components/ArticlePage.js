@@ -38,13 +38,15 @@ render() {
     
     return (           <React.Fragment>
 {articleTitle}
-{artcontent.split("\r\n").map(artcontent=>{
+{artcontent.split("\n").map(artcontent=>{
+if(artcontent===''){return <br/>}
+else{
 return ( 
       <div>
         
        <p>{artcontent}</p>
 
-      </div>)})}
+      </div>)}})}
       {
           <Link to={`/article`}>back</Link>
       }
