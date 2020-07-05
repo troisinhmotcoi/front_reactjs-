@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import FullArticle from './FullArticle'
-import ArticlePage from './ArticlePage'
+import ArticlePage from './ArticlePage/ArticlePage'
 import About from './About'
 // The Roster component matches one of two different routes
 // depending on the full pathname

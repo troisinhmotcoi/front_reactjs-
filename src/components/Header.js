@@ -27,7 +27,7 @@ class Header extends React.Component {
           this.state.showMe?
           <div>
             <div className="navbar-link">
-    <li ><Link to="/home">Home</Link></li>
+    <li class="article-title"  ><Link   to="/home">Home</Link></li>
     
 
     

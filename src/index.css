@@ -65,10 +65,10 @@ link,a{  text-decoration: none;
   }
   li{width:100%;
   text-align: left;}
-  li:hover .navbar-link Link{
+  /* li:hover .navbar-link Link{
   
     
-  }
+  } */
   input{
     display:none;
   }
