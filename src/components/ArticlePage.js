@@ -40,6 +40,7 @@ render() {
     return (           <React.Fragment>
 {articleTitle}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 {str.split('<br/>').map(artcontent=>{
   if(artcontent === ''){return <br/>}
@@ -51,6 +52,8 @@ else {return (
       </div>) }
     })}
 =======
+=======
+>>>>>>> fe256be18a96ec65d96bf801fd4290ff0ddc59da
 {artcontent.split("\n").map(artcontent=>{
 if(artcontent===''){return <br/>}
 else{
@@ -60,6 +63,9 @@ return (
        <p>{artcontent}</p>
 
       </div>)}})}
+<<<<<<< HEAD
+>>>>>>> fe256be18a96ec65d96bf801fd4290ff0ddc59da
+=======
 >>>>>>> fe256be18a96ec65d96bf801fd4290ff0ddc59da
       {
           <Link to={`/article`}>back</Link>
